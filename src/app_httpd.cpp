@@ -16,6 +16,7 @@
 #include "esp_camera.h"
 #include "img_converters.h"
 #include "fb_gfx.h"
+#include "esp32-hal-log.h"
 #include "esp32-hal-ledc.h"
 #include "sdkconfig.h"
 #include "camera_index.h"
@@ -26,7 +27,7 @@
 
 // Face Detection will not work on boards without (or with disabled) PSRAM
 #ifdef BOARD_HAS_PSRAM
-#define CONFIG_ESP_FACE_DETECT_ENABLED 1
+#define CONFIG_ESP_FACE_DETECT_ENABLED 0
 // Face Recognition takes upward from 15 seconds per frame on chips other than ESP32S3
 // Makes no sense to have it enabled for them
 #if CONFIG_IDF_TARGET_ESP32S3
