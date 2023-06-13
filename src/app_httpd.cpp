@@ -25,20 +25,8 @@
 #include "esp32-hal-log.h"
 #endif
 
-// Face Detection will not work on boards without (or with disabled) PSRAM
-#ifdef BOARD_HAS_PSRAM
+// Face Detection needs additional code
 #define CONFIG_ESP_FACE_DETECT_ENABLED 0
-// Face Recognition takes upward from 15 seconds per frame on chips other than ESP32S3
-// Makes no sense to have it enabled for them
-#if CONFIG_IDF_TARGET_ESP32S3
-#define CONFIG_ESP_FACE_RECOGNITION_ENABLED 1
-#else
-#define CONFIG_ESP_FACE_RECOGNITION_ENABLED 0
-#endif
-#else
-#define CONFIG_ESP_FACE_DETECT_ENABLED 0
-#define CONFIG_ESP_FACE_RECOGNITION_ENABLED 0
-#endif
 
 #if CONFIG_ESP_FACE_DETECT_ENABLED
 

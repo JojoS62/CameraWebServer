@@ -34,8 +34,8 @@
 // ===========================
 // Enter your WiFi credentials
 // ===========================
-const char* ssid = "JojosWLan1";
-const char* password = "1883057324535716";
+const char* ssid = "";
+const char* password = "";
 
 void startCameraServer();
 void setupLedFlash(int pin);
